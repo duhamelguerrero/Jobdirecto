@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { LanguageContext } from "../Language/LanguageContext";
 import { Link } from "../../utils/router";
+import BePremiumModal from "../BePremiumModal/BePremiumModal";
 
 export default class ModalJob extends React.Component {
     constructor(props) {
@@ -10,7 +11,8 @@ export default class ModalJob extends React.Component {
             pleaseLogin: false,
             reportedAlready: false,
             thanksForReporting: false,
-            whoHasReported: ""
+            whoHasReported: "",
+            showBePremiumModal:false,
         };
         this.reportPost = this.reportPost.bind(this);
         this.getJobDetails = this.getJobDetails.bind(this);
@@ -28,6 +30,10 @@ export default class ModalJob extends React.Component {
                 whoHasReported: "blah"
             });
         });
+    }
+    hideBePremiumModal=()=> {
+        document.body.classList.remove('lockBackground')
+        this.setState({ showBePremiumModal: false })
     }
 
     getJobDetails() {
@@ -150,7 +156,7 @@ export default class ModalJob extends React.Component {
                                 {this.context.jobConfirm.area}
                             </td>
                             <td className="jobDetailsText">
-                                {this.props.country.find(e=>e.id==this.state.jobData.data.id_area).name}
+                                {(this.props.country.find(e=>e.id==this.state.jobData.data.id_area) || this.props.country.find(e=>e.id==this.state.jobData.data.area)).name}
                             </td>
                         </tr>
                         
@@ -159,7 +165,7 @@ export default class ModalJob extends React.Component {
                                 {this.context.jobConfirm.phone}
                             </td>
                             <td className="jobDetailsText">
-                            {this.state.jobData.data.phone!==false ? (this.state.jobData.data.phone) : (<div><Link to={"/premiumBuy"}  >{this.context.jobConfirm.viewDetails}</Link></div>)}
+                            {this.state.jobData.data.phone!==false ? (this.state.jobData.data.phone) : (<div style={{cursor:"pointer"}} onClick={_=>this.setState({showBePremiumModal:true})}>{this.context.jobConfirm.viewDetails}</div>)}
                             </td>
                         </tr>
                         <tr>
@@ -244,6 +250,10 @@ export default class ModalJob extends React.Component {
                     <br />
                     <br />
                 </main>
+
+                {this.state.showBePremiumModal && (
+                    <BePremiumModal close={this.hideBePremiumModal} />
+                )}
             </div>
         );
     }
