@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { LanguageContext } from "../Language/LanguageContext";
 
-
 export default class DeleteModal extends React.Component {
     constructor(props) {
         super(props);
