@@ -173,7 +173,7 @@ app.get("/getDate", function(req, res) {
 
 app.get("/getJobDetails/:id", function(req, res) {
     let phone = false;
-    if(req.user && req.user.premiun){
+    if(req.user && req.user.premium){
         phone = true;
     }
     return database.getJobInfo(req.params.id,phone).then(data => {
@@ -221,7 +221,7 @@ app.get("/getServiceDetails/:id", function(req, res) {
 
 app.get("/getPeopleDetails/:id", function(req, res) {
     let phone = false;
-    if(req.user && req.user.premiun){
+    if(req.user && req.user.premium){
         phone = true;
     }
     return database.getPeopleInfo(req.params.id,phone).then(data => {
@@ -241,7 +241,7 @@ app.get("/getJobforCorrect", function(req, res) {
 app.get("/getJobs", function(req, res) {
     // req.session = null;
     let limit = false;
-    if(!req.user || !req.user.premiun){
+    if(!req.user || !req.user.premium){
         limit = true;
     }
     
@@ -289,7 +289,7 @@ app.get("/getServices", function(req, res) {
 app.get("/getPeople", function(req, res) {
     // req.session = null;
     let limit = false;
-    if(!req.user || !req.user.premiun){
+    if(!req.user || !req.user.premium){
         limit = true; 
     }
     return database.getPeople().then(data => {
