@@ -29,10 +29,11 @@ export const languages = {
             deny: "Otro dia",
             buyPremium: "Comprar cuenta premium ($5)"
         },
-        bepremiumModal:{
-            title: "Solo los usuarios premium pueden ver estos anuncios :)",
-            deny: "Otro dia",
-            buyPremium: "Comprar cuenta premium ($5)"
+        bepremiumModal: {
+            title:
+                "Solo los usuarios premium pueden ver todos los anuncios. Deseas ser usuario premium?",
+            deny: "No gracias",
+            buyPremium: "Si deseo (2$ por semana)"
         },
         deleteModal: {
             title: "Desea eliminar este anuncio?",
@@ -92,7 +93,7 @@ export const languages = {
             contact: "Preguntar por:",
             extraInfo: "Mas informacion:",
             button: "Publicar",
-            viewDetails:"Para ver el numero debe ser premium"
+            viewDetails: "Para ver el numero debe ser premium"
         },
         modalJob: {
             reportedAlready:
@@ -215,7 +216,7 @@ export const languages = {
             deny: "Nevermind",
             buyPremium: "Get premium account ($5)"
         },
-        bepremiumModal:{
+        bepremiumModal: {
             title: "Only premium users can see this posts :)",
             deny: "Nevermind",
             buyPremium: "Get premium account ($5)"
