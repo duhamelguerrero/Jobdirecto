@@ -2,6 +2,8 @@ const spicedPg = require("spiced-pg");
 let dbUrl;
 if (process.env.DATABASE_URL2 !== undefined) {
     dbUrl = process.env.DATABASE_URL2;
+}else if (process.env.DATABASE_URL !== undefined) {
+        dbUrl = process.env.DATABASE_URL;
 } else {
     let secrets = require("./secrets.json");
     dbUrl = `postgres:${secrets.dbUser}:${secrets.dbPassword}@${secrets.dbHost}:${secrets.dbPort}/${secrets.dbName}`;
