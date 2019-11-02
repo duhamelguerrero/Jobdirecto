@@ -15,10 +15,12 @@ export default class BePremiumModal extends React.Component {
                         {this.context.bepremiumModal.title}
                     </h1>
                     <div>
-                        <Link to={"/premiumBuy"} className="buttonBasic buttonPremium">
-                            {this.context.premiumModal.buyPremium}
-                            <br />
-                        </Link>
+                        <button className="buttonBasic buttonPremium">
+                            <Link to={"/premiumBuy"}>
+                                {this.context.premiumModal.buyPremium}
+                                <br />
+                            </Link>
+                        </button>
                     </div>
                     <div>
                         <button
