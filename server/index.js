@@ -255,6 +255,7 @@ app.get("/getJobs", function(req, res) {
                 e.phone = "";
                 e.contact = "";
                 e.needPremium = true;
+                e.uuuuu = req.user
             })
             data = [...visibles,...novisibles];
         }
