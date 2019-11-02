@@ -253,7 +253,7 @@ app.get("/getJobs", function(req, res) {
             novisibles.forEach(e=>{
                 e.restname = "";
                 e.address = "";
-                e.phone = e.phone?"":false;
+                e.phone = "";
                 e.contact = "";
                 e.needPremium = true;
                 e.uuuuu = req.user
