@@ -88,7 +88,7 @@ export default class ModalPeople extends React.Component {
                                 {this.context.personModal.area}
                             </td>
                             <td className="jobDetailsText">
-                                {this.props.country.find(e=>e.id==this.state.peopleData.data.personarea).name}
+                                {this.props.country.find(e=>e.id==this.state.peopleData.data.id_area).name}
                             </td>
                         </tr>
                         <tr>
