@@ -9,12 +9,12 @@ function StripeButton3() {
 
     if (window.location.hostname == "localhost") {
         stripeKey = "pk_test_EchftZwNDBbLUUNsRhb9S8QM00fF3sfDub";
-        itemArray = "prod_G4PwcS4piB1X96";
+        itemArray = "plan_G4Px3qkpwxFZ23";
         successUrl = `//${window.location.host}/#/premiumSet`;
         failUrl = `//${window.location.host}/#/StripeButton`;
     } else {
         stripeKey = "pk_live_nnLZ2Hh8llbujwMwz4kstl9700kF3t8LKz";
-        itemArray = "prod_G2XR9dSeyYHrpl";
+        itemArray = "plan_G2XS2WV0wZlWiA";
         successUrl = `//${window.location.host}/#/premiumSet`;
         failUrl = `//${window.location.host}/#/StripeButton`;
     }

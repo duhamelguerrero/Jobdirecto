@@ -8,12 +8,12 @@ function StripeButton(props) {
 
     if (window.location.hostname == "localhost") {
         stripeKey = "pk_test_EchftZwNDBbLUUNsRhb9S8QM00fF3sfDub";
-        itemArray = "prod_G4PzSzKaWZEE2D";
+        itemArray = "sku_G4PzLi8dz2bcF7";
         successUrl = `//localhost:6543/#/JobConfirm/${props.transactionId}`;
         failUrl = "//localhost:6543/#/StripeButton";
     } else {
         stripeKey = "pk_live_nnLZ2Hh8llbujwMwz4kstl9700kF3t8LKz";
-        itemArray = "prod_G2XQLYXxDn70jb";
+        itemArray = "sku_G2XQenhwQwX8RV";
         successUrl = `//www.jobdirecto.com/#/JobConfirm/${props.transactionId}`;
         failUrl = "//www.jobdirecto.com/StripeButton";
     }
