@@ -4,7 +4,8 @@
     "description": "",
     "main": "",
     "scripts": {
-        "start": "mode=prod webpack --config webpack.config.js",
+        "start": "nodemon server/index.js",
+        "build": "mode=prod webpack --config webpack.config.js",
         "start:dev": "webpack --config webpack.config.js",
         "dev": "concurrently --kill-others \"npm run serve\" \"npm run server-node\"",
         "server-node": "nodemon server/index.js",

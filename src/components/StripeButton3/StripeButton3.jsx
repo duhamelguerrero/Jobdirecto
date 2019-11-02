@@ -9,7 +9,7 @@ function StripeButton3() {
 
     if (window.location.hostname == "localhost") {
         stripeKey = "pk_test_EchftZwNDBbLUUNsRhb9S8QM00fF3sfDub";
-        itemArray = "prod_G2XR9dSeyYHrpl";
+        itemArray = "prod_G4PwcS4piB1X96";
         successUrl = `//${window.location.host}/#/premiumSet`;
         failUrl = `//${window.location.host}/#/StripeButton`;
     } else {

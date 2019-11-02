@@ -24,14 +24,14 @@ let firebase = window.firebase;
 export function sessionInit() {
     return new Promise(d=>{
         var firebaseConfig = {
-            apiKey: "<>",
-            authDomain: "<>",
-            databaseURL: "<>",
-            projectId: "<>",
+            apiKey: "AIzaSyDuj70ofk1YwUKRcej0yCbkc0gYAcIUPtA",
+            authDomain: "jobdirecto-4fac9.firebaseapp.com",
+            databaseURL: "https://jobdirecto-4fac9.firebaseio.com",
+            projectId: "jobdirecto-4fac9",
             storageBucket: "",
-            messagingSenderId: "<>",
-            appId: "<>",
-            measurementId: "<>"
+            messagingSenderId: "49743961497",
+            appId: "1:49743961497:web:7ba9fb47724f7a2326c708",
+            measurementId: "G-JV7QCNZDM9"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);

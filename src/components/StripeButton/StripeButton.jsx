@@ -8,7 +8,7 @@ function StripeButton(props) {
 
     if (window.location.hostname == "localhost") {
         stripeKey = "pk_test_EchftZwNDBbLUUNsRhb9S8QM00fF3sfDub";
-        itemArray = "prod_G2XQLYXxDn70jb";
+        itemArray = "prod_G4PzSzKaWZEE2D";
         successUrl = `//localhost:6543/#/JobConfirm/${props.transactionId}`;
         failUrl = "//localhost:6543/#/StripeButton";
     } else {
