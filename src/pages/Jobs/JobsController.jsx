@@ -328,7 +328,7 @@ export default class JobsController extends React.Component {
                                 return (
                                     <div
                                         onClick={e => this.showModalJob(data.id, data.id_user)}
-                                        className="postData paidPostData"
+                                        className={`postData paidPostData ${data.needPremium?"blureffect":""}`}
                                         key={data.id}
                                     >
                                         <div className="flexContainer">
@@ -380,7 +380,7 @@ export default class JobsController extends React.Component {
                                 return (
                                     <div
                                         onClick={e => this.showModalJob(data.id, data.id_user)}
-                                        className="postData paidPostData"
+                                        className={`postData paidPostData ${data.needPremium?"blureffect":""}`}
                                         key={data.id}
                                     >
                                         <div className="flexContainer">
@@ -422,7 +422,7 @@ export default class JobsController extends React.Component {
                                 return (
                                     <div
                                         onClick={e => this.showModalJob(data.id, data.id_user)}
-                                        className="postData"
+                                        className={`postData paidPostData ${data.needPremium?"blureffect":""}`}
                                         key={data.id}
                                     >
                                         <div className="flexContainer">
