@@ -379,10 +379,10 @@ exports.getUserStatus = function(facebookId) {
 };
 
 exports.getJobInfo = function(id, isphone) {
-    // let phone = "";
-    // if(!isphone){
-    //     phone = ", false as phone";
-    // }
+    let phone = "";
+    if (!isphone) {
+        phone = ", false as phone";
+    }
     return db
         .query(`SELECT * ${phone} FROM jobs WHERE id = $1`, [id])
         .then(results => {
