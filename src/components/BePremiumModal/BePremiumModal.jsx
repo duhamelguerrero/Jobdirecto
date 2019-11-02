@@ -16,10 +16,9 @@ export default class BePremiumModal extends React.Component {
                     </h1>
                     <div>
                         <Link to={"/premiumBuy"} className="buttonBasic buttonPremium">
-                            {context.premiumModal.buyPremium}
+                            {this.context.premiumModal.buyPremium}
                             <br />
                         </Link>
-                        <div>{error}</div>
                     </div>
                     <div>
                         <button
