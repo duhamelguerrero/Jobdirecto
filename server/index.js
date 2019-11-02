@@ -249,10 +249,11 @@ app.get("/getJobs", function(req, res) {
         if(limit){
             let visibles = data.slice(0,5);
             let novisibles = data.slice(5);
+            
             novisibles.forEach(e=>{
                 e.restname = "";
                 e.address = "";
-                e.phone = "";
+                e.phone = e.phone?"":false;
                 e.contact = "";
                 e.needPremium = true;
                 e.uuuuu = req.user
