@@ -7,7 +7,7 @@ import { LanguageContext } from "../Language/LanguageContext";
 function StripeButton3() {
     let stripeKey, itemArray, successUrl, failUrl;
 
-    if (window.location.hostname == "localhost") {
+    if (window.location.hostname == "localhost" ||  window.location.hostname=="staging-jobdirecto.herokuapp.com") {
         stripeKey = "pk_test_EchftZwNDBbLUUNsRhb9S8QM00fF3sfDub";
         itemArray = "plan_G4Px3qkpwxFZ23";
         successUrl = `//${window.location.host}/#/premiumSet`;
