@@ -5,7 +5,6 @@ import { Link } from "../../utils/router";
 
 export default class BePremiumModal extends React.Component {
     render() {
-        
         return (
             <div>
                 <div onClick={this.props.close} className="backgroundBlock" />
@@ -13,6 +12,9 @@ export default class BePremiumModal extends React.Component {
                 <div className="deleteModal">
                     <h1 className="heading-1 deleteModalTitle">
                         {this.context.bepremiumModal.title}
+                    </h1>
+                    <h1 className="heading-1 deleteModalTitle">
+                        {this.context.bepremiumModal.title2}
                     </h1>
                     <div>
                         <button className="buttonBasic buttonPremium">

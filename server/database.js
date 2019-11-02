@@ -2,8 +2,8 @@ const spicedPg = require("spiced-pg");
 let dbUrl;
 if (process.env.DATABASE_URL2 !== undefined) {
     dbUrl = process.env.DATABASE_URL2;
-}else if (process.env.DATABASE_URL !== undefined) {
-        dbUrl = process.env.DATABASE_URL;
+} else if (process.env.DATABASE_URL !== undefined) {
+    dbUrl = process.env.DATABASE_URL;
 } else {
     let secrets = require("./secrets.json");
     dbUrl = `postgres:${secrets.dbUser}:${secrets.dbPassword}@${secrets.dbHost}:${secrets.dbPort}/${secrets.dbName}`;
@@ -193,7 +193,7 @@ exports.publishPerson = function(
     personArea,
     personNumber,
     personExtraInfo,
-    active=true
+    active = true
 ) {
     return db
         .query(
@@ -214,7 +214,7 @@ exports.publishPerson = function(
                 personNumber,
                 personExtraInfo,
                 "person",
-                active,
+                active
             ]
         )
         .then(function(results) {
@@ -231,7 +231,7 @@ exports.publishPersonNoUser = function(
     personArea,
     personNumber,
     personExtraInfo,
-    active=true
+    active = true
 ) {
     return db
         .query(
@@ -251,7 +251,7 @@ exports.publishPersonNoUser = function(
                 personNumber,
                 personExtraInfo,
                 "person",
-                active,
+                active
             ]
         )
         .then(function(results) {
@@ -383,9 +383,11 @@ exports.getJobInfo = function(id, isphone) {
     if(!isphone){
         phone = ", false as phone";
     }
-    return db.query(`SELECT * ${phone} FROM jobs WHERE id = $1`, [id]).then(results => {
-        return results.rows[0];
-    });
+    return db
+        .query(`SELECT * ${phone} FROM jobs WHERE id = $1`, [id])
+        .then(results => {
+            return results.rows[0];
+        });
 };
 
 exports.reportPost = function(id, clickerid) {
@@ -399,7 +401,8 @@ exports.reportPost = function(id, clickerid) {
         .then(function(results) {
             console.log(results.rows);
             return results.rows;
-        }).catch(r=>r);
+        })
+        .catch(r => r);
 };
 
 exports.whoHasReported = function(id) {
@@ -436,9 +439,9 @@ exports.deletePersonPost = function(id) {
 //     db.any('select moveJob($1)', [id]);
 // };
 
-exports.getPeopleInfo = function(id,isphone) {
+exports.getPeopleInfo = function(id, isphone) {
     let phone = "";
-    if(!isphone && false){
+    if (!isphone && false) {
         phone = ", null as personnumber";
     }
     return db
@@ -469,7 +472,7 @@ exports.getJobforCorrect = function(id) {
 
 exports.getJobs = function(isLimit) {
     let limit = "";
-    if(isLimit){
+    if (isLimit) {
         limit = "LIMIT 5";
     }
     return db
@@ -503,7 +506,7 @@ exports.getServices = function() {
 
 exports.getPeople = function(isLimit) {
     let limit = "";
-    if(isLimit){
+    if (isLimit) {
         limit = "LIMIT 5";
     }
     return db
@@ -576,7 +579,7 @@ exports.getLoginId = function(email) {
         });
 };
 
-exports.createTransaction = function(id_job,type,price){
+exports.createTransaction = function(id_job, type, price) {
     let transactionID = uuidv4();
 
     return db
@@ -587,56 +590,78 @@ exports.createTransaction = function(id_job,type,price){
         VALUES ($1,$2,$3,$4,$5,$6)
         RETURNING *;
         `,
-            [transactionID,id_job,type,'USD',price,"PENDING"]
+            [transactionID, id_job, type, "USD", price, "PENDING"]
         )
         .then(function(results) {
             return transactionID;
         });
-}
+};
 
-exports.getJobFromTransaction = function(id_trans){
-    return db.query("SELECT j.* FROM jobs j INNER JOIN cc ON cc.id_external=j.id WHERE cc.id_transsaction=$1 AND TYPE='JOB'", [id_trans])
-    .then(result=>{
-        return result.rows[0];
-    });
-}
-
-exports.getPersonFromTransaction = function(id_trans){
-    return db.query("SELECT j.* FROM personas j INNER JOIN cc ON cc.id_external=j.id WHERE cc.id_transsaction=$1 AND TYPE='PERSON'", [id_trans])
-    .then(result=>{
-        return result.rows[0];
-    });
-}
-exports.cancelTransaction = function(id){
-    return db.query("UPDATE cc SET status='REJECTED' WHERE id_transsaction=$1",[id]);
-}
-exports.markActive = function(id_job){
-    return db.query("UPDATE jobs SET active=true WHERE id=$1",[id_job])
-        .then(r=>{
-            return db.query("UPDATE cc SET status='APPROVE' WHERE id_external=$1",[id_job]);
+exports.getJobFromTransaction = function(id_trans) {
+    return db
+        .query(
+            "SELECT j.* FROM jobs j INNER JOIN cc ON cc.id_external=j.id WHERE cc.id_transsaction=$1 AND TYPE='JOB'",
+            [id_trans]
+        )
+        .then(result => {
+            return result.rows[0];
         });
-}
+};
 
-exports.markActivePerson = function(id_job){
-    return db.query("UPDATE personas SET active=true WHERE id=$1",[id_job])
-        .then(r=>{
-            return db.query("UPDATE cc SET status='APPROVE' WHERE id_external=$1",[id_job]);
+exports.getPersonFromTransaction = function(id_trans) {
+    return db
+        .query(
+            "SELECT j.* FROM personas j INNER JOIN cc ON cc.id_external=j.id WHERE cc.id_transsaction=$1 AND TYPE='PERSON'",
+            [id_trans]
+        )
+        .then(result => {
+            return result.rows[0];
         });
-}
+};
+exports.cancelTransaction = function(id) {
+    return db.query(
+        "UPDATE cc SET status='REJECTED' WHERE id_transsaction=$1",
+        [id]
+    );
+};
+exports.markActive = function(id_job) {
+    return db
+        .query("UPDATE jobs SET active=true WHERE id=$1", [id_job])
+        .then(r => {
+            return db.query(
+                "UPDATE cc SET status='APPROVE' WHERE id_external=$1",
+                [id_job]
+            );
+        });
+};
 
-exports.getCountry = function(){
-    return db.query("SELECT * FROM cities").then(async result=>{
-        for(let i=0; i <result.rows.length; i++){
+exports.markActivePerson = function(id_job) {
+    return db
+        .query("UPDATE personas SET active=true WHERE id=$1", [id_job])
+        .then(r => {
+            return db.query(
+                "UPDATE cc SET status='APPROVE' WHERE id_external=$1",
+                [id_job]
+            );
+        });
+};
+
+exports.getCountry = function() {
+    return db.query("SELECT * FROM cities").then(async result => {
+        for (let i = 0; i < result.rows.length; i++) {
             let row = result.rows[i];
-            row.areas = await db.query("SELECT * FROM cities_area WHERE id_city = $1",[row.id]).then(r=>r.rows);
+            row.areas = await db
+                .query("SELECT * FROM cities_area WHERE id_city = $1", [row.id])
+                .then(r => r.rows);
         }
         return result.rows;
-    })
-}
+    });
+};
 
 function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+        var r = (Math.random() * 16) | 0,
+            v = c == "x" ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
     });
-  }
+}

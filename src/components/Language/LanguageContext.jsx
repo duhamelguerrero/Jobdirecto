@@ -25,14 +25,14 @@ export const languages = {
             premium: "You are a premium user!"
         },
         premiumModal: {
-            title:
-                "Solo los usuarios premium pueden cerrar sus anuncios. Desea ser usuario premium?",
+            title: "Solo los usuarios premium pueden cerrar sus anuncios.",
+            title2: "Desea ser usuario premium?",
             deny: "No gracias",
             buyPremium: "Si, comprar cuenta premium (2$)"
         },
         bepremiumModal: {
-            title:
-                "Solo los usuarios premium pueden ver todos los anuncios. Deseas ser usuario premium?",
+            title: "Solo los usuarios premium pueden ver todos los anuncios.",
+            title2: "Deseas ser usuario premium?",
             deny: "No gracias",
             buyPremium: "Si deseo (2$ por semana)"
         },
