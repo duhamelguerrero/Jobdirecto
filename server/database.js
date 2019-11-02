@@ -477,6 +477,7 @@ exports.getJobs = function(isLimit) {
             `SELECT *
         FROM jobs
         WHERE active = TRUE
+        AND created_at > now()- interval '2 week'
         ORDER BY id DESC
             ${limit}
         ;`
