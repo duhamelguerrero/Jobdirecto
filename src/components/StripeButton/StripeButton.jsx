@@ -6,14 +6,14 @@ import { LanguageContext } from "../Language/LanguageContext";
 function StripeButton(props) {
     let stripeKey, itemArray, successUrl, failUrl;
 
-    if (window.location.hostname == "localhost" ) {
+    if (window.location.hostname == "localhost") {
         stripeKey = "pk_test_EchftZwNDBbLUUNsRhb9S8QM00fF3sfDub";
         itemArray = "sku_G4PzLi8dz2bcF7";
         successUrl = `//localhost:6543/#/JobConfirm/${props.transactionId}`;
         failUrl = "//localhost:6543/#/StripeButton";
     } else {
-        stripeKey = "pk_live_nnLZ2Hh8llbujwMwz4kstl9700kF3t8LKz";
-        itemArray = "sku_G2XQenhwQwX8RV";
+        stripeKey = "pk_live_5PjwBk9dSdW7htTKHQ3HKrTd";
+        itemArray = "sku_FKbzx0lbo7bZZR";
         successUrl = `//www.jobdirecto.com/#/JobConfirm/${props.transactionId}`;
         failUrl = "//www.jobdirecto.com/StripeButton";
     }
@@ -31,7 +31,7 @@ function StripeButton(props) {
                 successUrl: window.location.protocol + successUrl,
 
                 cancelUrl: window.location.protocol + failUrl,
-                clientReferenceId: props.transactionId,
+                clientReferenceId: props.transactionId
             })
             .then(result => {
                 if (result.error) {
