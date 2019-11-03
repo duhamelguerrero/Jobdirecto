@@ -4,6 +4,8 @@ import { LanguageContext } from "../../components/Language/LanguageContext";
 import { BodyComponent } from "../../components/Body/BodyComponent";
 
 export default class PremiumBuy extends React.Component {
+console.log("dogs", this.props)
+
     render() {
         return (
             <BodyComponent
