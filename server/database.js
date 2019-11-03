@@ -379,7 +379,7 @@ exports.getUserStatus = function(facebookId) {
 };
 
 exports.getJobInfo = function(id, isphone) {
-    let phone = "";
+    // let phone = "";
     if (!isphone) {
         phone = ", false as phone";
     }
