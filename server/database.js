@@ -473,7 +473,7 @@ exports.getJobforCorrect = function(id) {
 exports.getJobs = function(isLimit) {
     let limit = "";
     if (isLimit) {
-        limit = "LIMIT 5";
+        limit = "LIMIT 7";
     }
     return db
         .query(
@@ -507,7 +507,7 @@ exports.getServices = function() {
 exports.getPeople = function(isLimit) {
     let limit = "";
     if (isLimit) {
-        limit = "LIMIT 5";
+        limit = "LIMIT 7";
     }
     return db
         .query(
