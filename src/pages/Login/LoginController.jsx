@@ -17,7 +17,6 @@ export default class LoginController extends React.Component {
     }
 
     facebookLogin() {
-<<<<<<< HEAD
         loginWithFacebook().then(r=>{
             if(this.props.navigation.params && this.props.navigation.params.__pathguard__){
                 this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
@@ -25,11 +24,6 @@ export default class LoginController extends React.Component {
                 this.props.navigation.navigate("/");
             }
         })
-=======
-        loginWithFacebook().then(r => {
-            this.props.navigation.navigate("/premiumBuy");
-        });
->>>>>>> d2436b105c6ac92d85071605b3e04571499fb1af
         //axios.get("/loginFacebook");
     }
     googleLogin() {
