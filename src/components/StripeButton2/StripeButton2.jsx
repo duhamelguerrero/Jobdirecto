@@ -12,8 +12,10 @@ function StripeButton2(props) {
         successUrl = `//${location.host}/#/personConfirm/${props.transactionId}`;
         failUrl = `//${location.host}/#/StripeButton`;
     } else {
-        stripeKey = "pk_live_nnLZ2Hh8llbujwMwz4kstl9700kF3t8LKz";
-        itemArray = "sku_G2XPSJmR6bzZYk";
+        stripeKey = "pk_live_5PjwBk9dSdW7htTKHQ3HKrTd";
+
+        itemArray = "sku_FKbzx0lbo7bZZR";
+
         successUrl = `//${location.host}/#/personConfirm/${props.transactionId}`;
         failUrl = `//${location.host}/#/StripeButton`;
     }
@@ -24,7 +26,7 @@ function StripeButton2(props) {
 
     const [error, setError] = useState();
 
-    const handleClick = (event) => {
+    const handleClick = event => {
         stripe
             .redirectToCheckout({
                 items: [{ sku: itemArray, quantity: 1 }],
