@@ -12,10 +12,8 @@ function StripeButton(props) {
         successUrl = `//localhost:6543/#/JobConfirm/${props.transactionId}`;
         failUrl = "//localhost:6543/#/StripeButton";
     } else {
-        stripeKey = "pk_live_nnLZ2Hh8llbujwMwz4kstl9700kF3t8LKz";
-
+        stripeKey = "pk_live_5PjwBk9dSdW7htTKHQ3HKrTd";
         itemArray = "sku_G2XPSJmR6bzZYk";
-
         successUrl = `//www.jobdirecto.com/#/JobConfirm/${props.transactionId}`;
         failUrl = "//www.jobdirecto.com/StripeButton";
     }
