@@ -199,7 +199,7 @@ exports.publishPerson = function(
         .query(
             `
         INSERT INTO personas
-        (facebookId, personName, personStatus, personSkill, personExperience, personSchedule, personArea, personNumber, personExtraInfo, postType,active)
+        (id_user, personName, personStatus, personSkill, personExperience, personSchedule, personArea, personNumber, personExtraInfo, postType,active)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
         returning *;
         `,
