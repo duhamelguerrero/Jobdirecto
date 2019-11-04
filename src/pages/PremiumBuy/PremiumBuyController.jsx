@@ -8,7 +8,7 @@ export default class PremiumBuy extends React.Component {
 
     cancelPay=(event)=> {
         event.preventDefault();
-        this.props.navigation.navigate("/",{state:state});
+        this.props.navigation.navigate("/");
     }
 
     render() {
