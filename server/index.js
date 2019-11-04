@@ -7,7 +7,7 @@ const redirectToHTTPS = require("express-http-to-https").redirectToHTTPS;
 const passport = require("passport");
 const cors = require("cors");
 const path = require("path");
-const atob = require('atob');
+const atob = require("atob");
 
 FacebookStrategy = require("passport-facebook").Strategy;
 let fbSecret;
@@ -62,9 +62,9 @@ app.use(
     })
 );
 
-app.use(function(req,res,next){
-    if(req.get('Authorization')){
-        let profile = JSON.parse(atob(req.get('Authorization')));
+app.use(function(req, res, next) {
+    if (req.get("Authorization")) {
+        let profile = JSON.parse(atob(req.get("Authorization")));
         console.log(profile);
         return database
             .findOrCreateFacebookUser(profile.id, profile.displayName)
@@ -74,7 +74,7 @@ app.use(function(req,res,next){
             });
     }
     next();
-})
+});
 
 /* passport.use(
     new FacebookStrategy(
@@ -110,7 +110,6 @@ passport.deserializeUser(function(obj, done) {
 app.use(passport.initialize());
 app.use(passport.session()); */
 
-
 app.get("/user", (req, res) => {
     res.json(req.user);
 });
@@ -131,12 +130,12 @@ app.get(
         res.redirect("/#/");
     },
     // these errors occur when the user logs in twice with the same token
-    function(err,req,res,next) {
+    function(err, req, res, next) {
         // You could put your own behavior in here, fx: you could force auth again...
         // res.redirect('/auth/facebook/');
-        
-        if(err) {
-            console.log({message: err.message})
+
+        if (err) {
+            console.log({ message: err.message });
         }
     }
 );
@@ -173,10 +172,10 @@ app.get("/getDate", function(req, res) {
 
 app.get("/getJobDetails/:id", function(req, res) {
     let phone = false;
-    if(req.user && req.user.premium){
+    if (req.user && req.user.premium) {
         phone = true;
     }
-    return database.getJobInfo(req.params.id,phone).then(data => {
+    return database.getJobInfo(req.params.id, phone).then(data => {
         res.json({
             data
         });
@@ -202,13 +201,13 @@ app.post("/reportPost/:id", function(req, res) {
     });
 });
 
-app.get("/getCountry",function(req,res){
-    return database.getCountry().then(data=>{
+app.get("/getCountry", function(req, res) {
+    return database.getCountry().then(data => {
         res.json({
             data
         });
-    })
-})
+    });
+});
 
 app.get("/getServiceDetails/:id", function(req, res) {
     return database.getServiceInfo(req.params.id).then(data => {
@@ -221,10 +220,10 @@ app.get("/getServiceDetails/:id", function(req, res) {
 
 app.get("/getPeopleDetails/:id", function(req, res) {
     let phone = false;
-    if(req.user && req.user.premium){
+    if (req.user && req.user.premium) {
         phone = true;
     }
-    return database.getPeopleInfo(req.params.id,phone).then(data => {
+    return database.getPeopleInfo(req.params.id, phone).then(data => {
         res.json({
             data
         });
@@ -241,24 +240,24 @@ app.get("/getJobforCorrect", function(req, res) {
 app.get("/getJobs", function(req, res) {
     // req.session = null;
     let limit = false;
-    if(!req.user || !req.user.premium){
+    if (!req.user || !req.user.premium) {
         limit = true;
     }
-    
+
     return database.getJobs().then(data => {
-        if(limit){
-            let visibles = data.slice(0,5);
-            let novisibles = data.slice(5);
-            
-            novisibles.forEach(e=>{
+        if (limit) {
+            let visibles = data.slice(0, 7);
+            let novisibles = data.slice(7);
+
+            novisibles.forEach(e => {
                 e.restname = "";
                 e.address = "";
                 e.phone = "";
                 e.contact = "";
                 e.needPremium = true;
-                e.uuuuu = req.user
-            })
-            data = [...visibles,...novisibles];
+                e.uuuuu = req.user;
+            });
+            data = [...visibles, ...novisibles];
         }
         res.json({
             data
@@ -290,11 +289,10 @@ app.get("/getServices", function(req, res) {
 app.get("/getPeople", function(req, res) {
     // req.session = null;
     let limit = false;
-    if(!req.user || !req.user.premium){
-        limit = true; 
+    if (!req.user || !req.user.premium) {
+        limit = true;
     }
     return database.getPeople().then(data => {
-
         res.json({
             data
         });
@@ -312,19 +310,21 @@ app.post("/finalizePerson", (req, res) => {
 
 app.post("/cancelUrgency", function(req, res) {
     // delete req.session.urgent;
-    return database.getJobFromTransaction(req.body.id)
-    .then(r=>{
-        console.log(r);
-        return database.deleteJob(r.id)
-    }).then(r=>{
-        console.log(r);
-        return database.cancelTransaction(req.body.id)
-    }).then(r=>{
-        res.json({
-            success: true
+    return database
+        .getJobFromTransaction(req.body.id)
+        .then(r => {
+            console.log(r);
+            return database.deleteJob(r.id);
+        })
+        .then(r => {
+            console.log(r);
+            return database.cancelTransaction(req.body.id);
+        })
+        .then(r => {
+            res.json({
+                success: true
+            });
         });
-    });
-    
 });
 
 app.post("/cancelPay", function(req, res) {
@@ -394,11 +394,11 @@ app.post("/finalizeJob", (req, res) => {
 
 app.post("/publishJob", (req, res) => {
     req.session.job = null;
-    if(req.body.jobData.data.id){
-        return database.markActive(req.body.jobData.data.id).then(r=>{
+    if (req.body.jobData.data.id) {
+        return database.markActive(req.body.jobData.data.id).then(r => {
             res.json({
-                success: true,
-            })
+                success: true
+            });
         });
     }
     if (req.user === undefined) {
@@ -451,12 +451,14 @@ app.post("/publishJob", (req, res) => {
 app.post("/publishPerson", (req, res) => {
     req.session.personAd = null;
     console.log("req body in finalize: ", req.body);
-    if(req.body.personData.data.id){
-        return database.markActivePerson(req.body.personData.data.id).then(r=>{
-            res.json({
-                success: true,
-            })
-        });
+    if (req.body.personData.data.id) {
+        return database
+            .markActivePerson(req.body.personData.data.id)
+            .then(r => {
+                res.json({
+                    success: true
+                });
+            });
     }
     if (req.user === undefined) {
         return database
@@ -471,7 +473,7 @@ app.post("/publishPerson", (req, res) => {
                 req.body.personData.data.personExtraInfo,
                 req.body.personData.data.active
             )
-            .then((r) => {
+            .then(r => {
                 res.json({
                     success: true,
                     response: r.id
@@ -491,7 +493,7 @@ app.post("/publishPerson", (req, res) => {
             req.body.personData.data.personExtraInfo,
             req.body.personData.data.active
         )
-        .then((r) => {
+        .then(r => {
             res.json({
                 success: true,
                 response: r.id
@@ -537,31 +539,31 @@ app.get("/deleteService/:id", function(req, res) {
         req.session.serviceOwner = data.serviceOwner;
     });
 });
-app.post("/createJobTransaction",function(req,res){
-    return database.createTransaction(req.body.id,"JOB",10.00).then(r=>{
-        res.json({
-            r
-        });
-    })
-});
-app.post("/createPersonTransaction",function(req,res){
-    return database.createTransaction(req.body.id,"PERSON",10.00).then(r=>{
+app.post("/createJobTransaction", function(req, res) {
+    return database.createTransaction(req.body.id, "JOB", 10.0).then(r => {
         res.json({
             r
         });
     });
 });
-app.get("/getJobTrans/:id",function(req,res){
-    return database.getJobFromTransaction(req.params.id).then(r=>{
+app.post("/createPersonTransaction", function(req, res) {
+    return database.createTransaction(req.body.id, "PERSON", 10.0).then(r => {
         res.json({
-            jobdata:r
+            r
         });
     });
 });
-app.get("/getPersonTrans/:id",function(req,res){
-    return database.getPersonFromTransaction(req.params.id).then(r=>{
+app.get("/getJobTrans/:id", function(req, res) {
+    return database.getJobFromTransaction(req.params.id).then(r => {
         res.json({
-            jobdata:r
+            jobdata: r
+        });
+    });
+});
+app.get("/getPersonTrans/:id", function(req, res) {
+    return database.getPersonFromTransaction(req.params.id).then(r => {
+        res.json({
+            jobdata: r
         });
     });
 });

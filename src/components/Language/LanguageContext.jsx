@@ -41,9 +41,10 @@ export const languages = {
             yes: "Si"
         },
         login: {
-            title: "Porfavor ingrese a su cuenta para continuar",
+            title:
+                "Para convertirse en usuario premium, primero inicie sesion con Facebook",
             text:
-                "Luego de iniciar sesion podra hacer nuevas cosas, como reportar anuncios indebidos o borrar sus anuncios cuando ya no los necesite (cuenta premium)",
+                "Luego de iniciar sesion podra hacer nuevas cosas, como reportar anuncios, borrar sus anuncios y convertirse en usuario premium",
             button: "Iniciar Sesión con Facebook"
         },
         postType: {

@@ -2,9 +2,11 @@ import React from "react";
 import axios from "axios";
 import { LanguageContext } from "../../components/Language/LanguageContext";
 import { BodyComponent } from "../../components/Body/BodyComponent";
-import { loginWithFacebook, loginWithGoogle, loginWithEmail } from "../../utils/sessions";
-
-
+import {
+    loginWithFacebook,
+    loginWithGoogle,
+    loginWithEmail
+} from "../../utils/sessions";
 
 export default class LoginController extends React.Component {
     constructor(props) {
@@ -15,6 +17,7 @@ export default class LoginController extends React.Component {
     }
 
     facebookLogin() {
+<<<<<<< HEAD
         loginWithFacebook().then(r=>{
             if(this.props.navigation.params && this.props.navigation.params.__pathguard__){
                 this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
@@ -22,18 +25,25 @@ export default class LoginController extends React.Component {
                 this.props.navigation.navigate("/");
             }
         })
+=======
+        loginWithFacebook().then(r => {
+            this.props.navigation.navigate("/premiumBuy");
+        });
+>>>>>>> d2436b105c6ac92d85071605b3e04571499fb1af
         //axios.get("/loginFacebook");
     }
     googleLogin() {
         loginWithGoogle();
     }
-    emailLogin(){
-        loginWithEmail("gustavoaglatorre@gmail.com","123456789");
+    emailLogin() {
+        loginWithEmail("gustavoaglatorre@gmail.com", "123456789");
     }
 
     render() {
         return (
-            <BodyComponent toggleLanguage={this.props.navigation.toggleLanguage}>
+            <BodyComponent
+                toggleLanguage={this.props.navigation.toggleLanguage}
+            >
                 <div className="container">
                     <h2 className="heading-1">{this.context.login.title}</h2>
                     <p className="text">{this.context.login.text}</p>
@@ -44,7 +54,14 @@ export default class LoginController extends React.Component {
                         <button   ><a id="facebook-button" onClick={_ => this.emailLogin()} >{this.context.login.button}</a></button>
                     </div> */}
                     <div className="facebookContainer">
-                        <button   ><a id="facebook-button" onClick={_ => this.facebookLogin()} >{this.context.login.button}</a></button>
+                        <button>
+                            <a
+                                id="facebook-button"
+                                onClick={_ => this.facebookLogin()}
+                            >
+                                {this.context.login.button}
+                            </a>
+                        </button>
                     </div>
                 </div>
             </BodyComponent>
