@@ -276,8 +276,8 @@ export default class JobsController extends React.Component {
                             value={this.context.main.createPost}
                             onClick={this.handleSubmit}
                         />
-                        {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data !== "true" && <h3 id="welcomeText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} </h3>}
-                        {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data == "true" && <h3 id="welcomeText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} <br />{this.context.main.premium}</h3>}
+                        {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data && <h3 id="welcomeText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} </h3>}
+                        {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data && <h3 id="welcomeText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} <br />{this.context.main.premium}</h3>}
 
 {/* <p id="welcomeText" className="text">Usuarios premium conectados: 36</p> */}
                         {/**/}
