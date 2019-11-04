@@ -105,7 +105,7 @@ export default class JobsController extends React.Component {
         axios.get("/getUserStatus").then(result => {
             
             if(result.data){
-                this.setState({ userStatus: result.data }, () => {
+                this.setState({ userStatus: result }, () => {
                     
                 });
             }
