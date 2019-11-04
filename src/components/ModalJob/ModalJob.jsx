@@ -156,7 +156,7 @@ export default class ModalJob extends React.Component {
                                 {this.context.jobConfirm.area}
                             </td>
                             <td className="jobDetailsText">
-                                {(this.props.country.find(e=>e.id==this.state.jobData.data.id_area) || this.props.country.find(e=>e.id==this.state.jobData.data.area)).name}
+                                {(this.props.country.find(e=>e.id==this.state.jobData.data.id_area) || this.props.country.find(e=>e.id==this.state.jobData.data.area) || {}).name}
                             </td>
                         </tr>
                         
