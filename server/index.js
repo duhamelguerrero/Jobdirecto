@@ -250,12 +250,14 @@ app.get("/getJobs", function(req, res) {
             let novisibles = data.slice(7);
 
             novisibles.forEach(e => {
-                e.restname = "";
-                e.address = "";
-                e.phone = "";
-                e.contact = "";
-                e.needPremium = true;
-                e.uuuuu = req.user;
+                if (!e.urgent) {
+                    e.restname = "";
+                    e.address = "";
+                    e.phone = "";
+                    e.contact = "";
+                    e.needPremium = true;
+                    e.uuuuu = req.user;
+                }
             });
             data = [...visibles, ...novisibles];
         }
