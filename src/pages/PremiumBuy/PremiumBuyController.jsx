@@ -5,6 +5,12 @@ import { BodyComponent } from "../../components/Body/BodyComponent";
 import { Link } from "react-router-dom";
 
 export default class PremiumBuy extends React.Component {
+
+    cancelPay=(event)=> {
+        event.preventDefault();
+        this.props.navigation.navigate("/",{state:state});
+    }
+
     render() {
         return (
             <BodyComponent
