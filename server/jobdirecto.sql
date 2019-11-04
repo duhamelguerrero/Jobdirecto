@@ -31,7 +31,7 @@ CREATE TABLE users
     email VARCHAR(250),
     pass VARCHAR(250),
     premium bool DEFAULT false,
-    facebookId VARCHAR(300)
+    facebookId VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE cc
