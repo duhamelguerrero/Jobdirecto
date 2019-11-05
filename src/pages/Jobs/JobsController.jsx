@@ -238,13 +238,16 @@ export default class JobsController extends React.Component {
             <BodyComponent toggleLanguage={this.props.navigation.toggleLanguage}>
             <div className="itAll">
                 
-		        <p className="ambassadorText">{this.context.main.ambassador}</p>
+		        {/* <p className="ambassadorText">{this.context.main.ambassador}</p> */}
+<p  className="ambassadorText">Encontraron trabajo en lo que va de Noviembre: <br /> 2 personas</p>
+
+                <div className="authDiv">
                 {!this.state.user && <Link to="/login"><div className="buttonsAuth" ><img className="star starMini" src="star.png" /><p className="authText">{this.context.main.login}</p></div></Link>}
+                {this.state.user && <p className="buttonsAuth" onClick={this.logOut}>{this.context.main.logout}</p>}
                 {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data !== 'true' && <h3 id="authText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} </h3>}
                 {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data === 'true' && <h3 id="authText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} <br />{this.context.main.premium}</h3>}
-                
 
-                {this.state.user && <p className="buttonsAuth" onClick={this.logOut}>{this.context.main.logout}</p>}
+                </div>
                 <div>
                     <h1 />
                 </div>
@@ -279,7 +282,6 @@ export default class JobsController extends React.Component {
                             value={this.context.main.createPost}
                             onClick={this.handleSubmit}
                         />
-<p id="jobsFound" className="text">Encontraron trabajo en Noviembre: 14 personas</p>
                    
 {/* <p id="welcomeText" className="text">Usuarios premium conectados: 36</p> */}
                         {/**/}
