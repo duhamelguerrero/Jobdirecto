@@ -241,7 +241,7 @@ export default class JobsController extends React.Component {
 		        <p className="ambassadorText">{this.context.main.ambassador}</p>
                 {!this.state.user && <Link to="/login"><div className="buttonsAuth" ><img className="star starMini" src="star.png" /><p className="authText">{this.context.main.login}</p></div></Link>}
                 {this.state.user && <p className="buttonsAuth" onClick={this.logOut}>{this.context.main.logout}</p>}
-
+<p className="authText">Encontraron trabajo en Noviembre: 14 personas</p>
                 <div>
                     <h1 />
                 </div>
