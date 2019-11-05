@@ -12,7 +12,7 @@ export const languages = {
             seeking4: "ofrece servicios de",
             filterDefault: "Todo %namearea%",
             filterOtherArea: "Otra area en %namearea%",
-            login: "Verificar mi cuenta",
+            login: "Iniciar sesion",
             logout: "Salir de mi cuenta",
             welcome: "Bienvenido",
             tooltip: "El creador de este anuncio es un usuario verificado.",
@@ -22,7 +22,7 @@ export const languages = {
             tooltip2:
                 "Este anuncio ha sido reportado por distintos usuarios. Cuidado!",
 
-            premium: "You are a premium user!"
+            premium: "Usted es usuario premium!"
         },
         premiumModal: {
             title: "Solo los usuarios premium pueden cerrar sus anuncios.",
