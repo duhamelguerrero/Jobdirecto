@@ -133,6 +133,8 @@ export const languages = {
         },
         premiumSet: {
             title: "Gracias por con confiar en JobDirecto!",
+            text:
+                "Cuando desee cancelar su suscripcion, simplemente envia un correo a me@wilfredocasas.com diciendo 'deseo cancelar mi suscripcion'",
             activate: "Activar cuenta premium"
         },
         serviceModal: {

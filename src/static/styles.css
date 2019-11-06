@@ -231,13 +231,19 @@ a:visited {
 .authDiv {
     float: right;
     right: 25px;
+    text-align: right;
     top: 25px;
     position: absolute;
 }
 
-.buttonsAuth {
+.buttonsAuth1 {
     font-size: 35px;
     display: flex;
+    color: rgb(26, 115, 232);
+}
+.buttonsAuth2 {
+    font-size: 35px;
+    /* display: flex; */
     color: rgb(26, 115, 232);
 }
 
@@ -515,7 +521,6 @@ td {
     background-color: white;
     border-color: black;
     margin-top: 60px;
-    margin-left: 30px;
     height: 65px;
     border-radius: 6px;
     text-align-last: center;
@@ -534,7 +539,7 @@ td {
     font-size: 50px;
     text-align: center;
     margin-bottom: 80px;
-    margin-top: 150px;
+    margin-top: 180px;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
         Helvetica Neue, Ubuntu, sans-serif;
     color: #303030;

@@ -3,7 +3,6 @@ import axios from "axios";
 import { LanguageContext } from "../../components/Language/LanguageContext";
 import { BodyComponent } from "../../components/Body/BodyComponent";
 
-
 export default class PremiumSet extends React.Component {
     constructor(props) {
         super(props);
@@ -24,15 +23,12 @@ export default class PremiumSet extends React.Component {
 
     getUserStatus() {
         axios.get("/getUserStatus").then(result => {
-            this.setState({ userStatus: result.data }, () => {
-                
-            });
+            this.setState({ userStatus: result.data }, () => {});
         });
     }
 
     setPremium() {
         if (this.state.userStatus !== true) {
-            
             axios.post("/setPremium").then(result => {
                 this.props.navigation.navigate("/");
             });
@@ -41,26 +37,30 @@ export default class PremiumSet extends React.Component {
 
     render() {
         return (
-            <BodyComponent toggleLanguage={this.props.navigation.toggleLanguage}>
-            <div className="container">
-                <p className="text">
-                    {" "}
-                    {this.context.premiumSet.title}
-                    <br />
-                </p>
-                <div className="PrePayPersonButtons">
-                    <button
-                        onClick={this.setPremium}
-                        className="buttonBasic buttonPremium">
-                        {this.context.premiumSet.activate}
-                    </button>
-                    <div className="contactInfo">
-                        <p className="contactInfo">
-                            {this.context.contactInfo.contactInfo}
-                        </p>
+            <BodyComponent
+                toggleLanguage={this.props.navigation.toggleLanguage}
+            >
+                <div className="container">
+                    <p className="text">
+                        {" "}
+                        {this.context.premiumSet.title}
+                        <br />
+                        {this.context.premiumSet.text}
+                    </p>
+                    <div className="PrePayPersonButtons">
+                        <button
+                            onClick={this.setPremium}
+                            className="buttonBasic buttonPremium"
+                        >
+                            {this.context.premiumSet.activate}
+                        </button>
+                        <div className="contactInfo">
+                            <p className="contactInfo">
+                                {this.context.contactInfo.contactInfo}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
             </BodyComponent>
         );
     }

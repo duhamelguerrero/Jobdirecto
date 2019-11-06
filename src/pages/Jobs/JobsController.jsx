@@ -239,13 +239,14 @@ export default class JobsController extends React.Component {
             <div className="itAll">
                 
 		        {/* <p className="ambassadorText">{this.context.main.ambassador}</p> */}
-<p  className="ambassadorText">Encontraron trabajo en lo que va de Noviembre: <br /> 2 personas</p>
+<p  className="ambassadorText">Encontraron trabajo en lo que va de Noviembre: <br /> 3 personas</p>
 
                 <div className="authDiv">
-                {!this.state.user && <Link to="/login"><div className="buttonsAuth" ><img className="star starMini" src="star.png" /><p className="authText">{this.context.main.login}</p></div></Link>}
-                {this.state.user && <p className="buttonsAuth" onClick={this.logOut}>{this.context.main.logout}</p>}
-                {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data !== 'true' && <h3 id="authText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} </h3>}
-                {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data === 'true' && <h3 id="authText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} <br />{this.context.main.premium}</h3>}
+                    {this.state.userStatus &&  this.state.userStatus.data && console.log("horny dog", this.state.userStatus.data.data)}
+                {!this.state.user && <Link to="/login"><div className="buttonsAuth1" ><img className="star starMini" src="star.png" /><p className="authText">{this.context.main.login}</p></div></Link>}
+                {this.state.user && <p className="buttonsAuth2" onClick={this.logOut}>{this.context.main.logout}</p>}
+                {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data.data === false && <h3 id="authText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} </h3>}
+                {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data.data === true && <h3 id="authText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} <br />{this.context.main.premium}</h3>}
 
                 </div>
                 <div>
