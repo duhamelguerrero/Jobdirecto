@@ -1,7 +1,7 @@
 {
     "name": "jobdirecto",
     "version": "1.0.0",
-    "description": "",
+    "description": "jobsite",
     "main": "",
     "scripts": {
         "start": "mode=prod webpack --config webpack.config.js",
