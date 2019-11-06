@@ -1,7 +1,7 @@
 {
     "name": "jobdirecto",
     "version": "1.0.0",
-    "description": "",
+    "description": "jobsite",
     "main": "",
     "scripts": {
         "start": "nodemon server/index.js",
