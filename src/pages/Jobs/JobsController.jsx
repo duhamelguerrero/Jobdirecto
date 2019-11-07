@@ -239,7 +239,7 @@ export default class JobsController extends React.Component {
             <div className="itAll">
                 
 		        {/* <p className="ambassadorText">{this.context.main.ambassador}</p> */}
-<p  className="ambassadorText">Encontraron trabajo en lo que va de Noviembre: <br /> 5 personas</p>
+<p  className="ambassadorText">Encontraron trabajo en lo que va de Noviembre: <br /> 9 personas</p>
 
                 <div className="authDiv">
                     {this.state.userStatus &&  this.state.userStatus.data && console.log("horny dog", this.state.userStatus.data.data)}
