@@ -113,9 +113,7 @@ export function loginWithGoogle() {
 
 export function loginWithFacebook() {
     var provider = new firebase.auth.FacebookAuthProvider();
-    provider.setCustomParameters({
-        display: "popup"
-    });
+
     return firebase
         .auth()
         .signInWithRedirect(provider)
