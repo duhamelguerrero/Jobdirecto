@@ -77,7 +77,9 @@ export default class JobForm extends React.Component {
 
     render() {
         return (
-            <BodyComponent toggleLanguage={this.props.navigation.toggleLanguage}>
+            <BodyComponent
+                toggleLanguage={this.props.navigation.toggleLanguage}
+            >
                 <div className="jobForm">
                     <form onSubmit={this.handleSubmit}>
                         <p className="formQuestions">
@@ -108,20 +110,6 @@ export default class JobForm extends React.Component {
                                     : ""
                             }
                             required="required"
-                            onChange={this.handleChange}
-                        />
-                        <p className="formQuestions">
-                            {this.context.jobForm.question3}
-                        </p>
-                        <input
-                            className="formInputs"
-                            type="text"
-                            name="hourpay"
-                            defaultValue={
-                                this.state.jobData && this.state.jobData.data
-                                    ? this.state.jobData.data.hourpay
-                                    : ""
-                            }
                             onChange={this.handleChange}
                         />
                         <br />
@@ -257,23 +245,23 @@ export default class JobForm extends React.Component {
                         </select>
                         {this.state.area ===
                             this.context.jobForm.filterOtherArea && (
-                                <div>
-                                    <p
-                                        className="formQuestions"
-                                        style={{ color: "blue" }}
-                                    >
-                                        <b>{this.context.jobForm.extraArea}</b>
-                                    </p>
-                                    <input
-                                        autoFocus
-                                        className="formInputs"
-                                        type="text"
-                                        name="otherArea"
-                                        required="required"
-                                        onChange={this.handleChange}
-                                    />
-                                </div>
-                            )}
+                            <div>
+                                <p
+                                    className="formQuestions"
+                                    style={{ color: "blue" }}
+                                >
+                                    <b>{this.context.jobForm.extraArea}</b>
+                                </p>
+                                <input
+                                    autoFocus
+                                    className="formInputs"
+                                    type="text"
+                                    name="otherArea"
+                                    required="required"
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                        )}
                         <p className="formQuestions">
                             {this.context.jobForm.question8}
                         </p>
