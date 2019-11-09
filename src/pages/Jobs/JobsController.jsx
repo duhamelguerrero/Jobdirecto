@@ -84,7 +84,7 @@ export default class JobsController extends React.Component {
         });
     }
 
-    handleChangeArea(event) {
+    handleChangeArea = (event) =>{
         this.setState({
             [event.target.name]: event.target.value,
             userSelectionArea: event.target.value
@@ -234,6 +234,7 @@ export default class JobsController extends React.Component {
         if (!this.state.jobData || !this.state.peopleData || !this.state.country) {
             return null;
         }
+        console.log(this.state.userSelectionArea);
         return (
             <BodyComponent toggleLanguage={this.props.navigation.toggleLanguage}>
             <div className="itAll">
@@ -302,7 +303,9 @@ export default class JobsController extends React.Component {
                             name="area"
                             onChange={this.handleChangeArea}
                         >
-
+                            <option value="">
+                                &#160;&#160;{this.context.main.filterDefault.replace("%namearea%",this.state.country.name)}
+                            </option>
                             {this.state.country && this.state.country.areas.map(e=>{
                                 return <option value={e.id}>&#160;&#160;{e.name}</option>
                             })}
@@ -383,8 +386,8 @@ export default class JobsController extends React.Component {
                     {this.state.userSelectionArea &&
                         this.state.jobData.data.map(data => {
                             if (
-                                this.state.userSelectionArea === data.area &&
-                                data.urgent === "true" &&
+                                (this.state.userSelectionArea === data.area || this.state.userSelectionArea === data.id_area) &&
+                                data.urgent === true &&
                                 this.urgentJobInterval(data.created_at) === true
                             ) {
                                 return (
@@ -423,11 +426,11 @@ export default class JobsController extends React.Component {
                                 );
                             }
                         })}
-                    {this.state.userSelectionArea &&
+                    {/* this.state.userSelectionArea &&
                         this.state.jobData.data.map(data => {
                             if (
                                 this.state.userSelectionArea !== this.context.main.filterOtherArea &&
-                                data.urgent === "true" && data.area !== "Queens" && data.area !== "Bronx" && data.area !== "Brooklyn" && data.area !== "Manhattan" && data.area !== "Staten Island"
+                                data.urgent === true && data.area !== "Queens" && data.area !== "Bronx" && data.area !== "Brooklyn" && data.area !== "Manhattan" && data.area !== "Staten Island"
                             ) {
                                 return (
                                     <div
@@ -467,7 +470,7 @@ export default class JobsController extends React.Component {
                                     </div>
                                 );
                             }
-                        })}
+                        }) */}
 
 
                     {/*people seeking jobs*/}
@@ -531,7 +534,7 @@ export default class JobsController extends React.Component {
                         this.state.jobData.data.map(data => {
                             if (
                                 this.state.userSelectionArea === data.area &&
-                                data.urgent !== "true"
+                                data.urgent !== true
                             ) {
                                 return (
                                     <div
@@ -568,7 +571,7 @@ export default class JobsController extends React.Component {
                                 );
                             }
                         })}
-                    {this.state.userSelectionArea &&
+                    {/* this.state.userSelectionArea &&
                         this.state.jobData.data.map(data => {
                             if (
                                 this.state.userSelectionArea !== this.context.main.filterOtherArea &&
@@ -609,11 +612,11 @@ export default class JobsController extends React.Component {
                                     </div>
                                 );
                             }
-                        })}
+                        }) */}
 
                     {!this.state.userSelectionArea &&
                         this.state.jobData.data.map(data => {
-                            if (data.urgent !== "true") {
+                            if (data.urgent !== true) {
                                 return (
 
                                     <div
