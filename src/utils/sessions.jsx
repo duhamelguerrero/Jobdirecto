@@ -113,10 +113,12 @@ export function loginWithGoogle() {
 
 export function loginWithFacebook() {
     var provider = new firebase.auth.FacebookAuthProvider();
-    provider.setCustomParameters({});
+    provider.setCustomParameters({
+        display: "popup"
+    });
     return firebase
         .auth()
-        .signInWithRedirect(provider)
+        .signInWithPopup(provider)
         .then(function(result) {
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
             var token = result.credential.accessToken;
