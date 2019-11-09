@@ -126,7 +126,11 @@ export function loginWithFacebook() {
             var user = result.user;
             // ...
             axios.defaults.headers.common["Authorization"] = user.uid;
-            console.log(user, result.credential.accessToken);
+            console.log(
+                "user and accesstoken",
+                user,
+                result.credential.accessToken
+            );
             return;
         })
         .catch(function(error) {
@@ -138,6 +142,12 @@ export function loginWithFacebook() {
             // The firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
             // ...
-            console.error(errorCode, errorMessage, email, credential);
+            console.error(
+                "error in sign in fb",
+                errorCode,
+                errorMessage,
+                email,
+                credential
+            );
         });
 }
