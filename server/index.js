@@ -570,12 +570,12 @@ app.get("/getPersonTrans/:id", function(req, res) {
     });
 });
 
-/* app.get("*", function(req, res) {
+app.get("*", function(req, res) {
     res.sendFile(__dirname + "/index.html");
-}); */
+}); 
 
-/* app.get("*", function(req, res) {
+ app.get("*", function(req, res) {
     res.redirect("https://" + req.headers.host + req.url);
-}); */
+}); 
 
 app.listen(process.env.PORT || 8081);
