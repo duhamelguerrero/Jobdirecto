@@ -310,7 +310,7 @@ export default class JobsController extends React.Component {
                                 return <option value={e.id}>&#160;&#160;{e.name}</option>
                             })}
                             
-                            <option value="">
+                            {/* <option value="">
                                 &#160;&#160;{this.context.main.filterDefault}
                             </option>
                             <option value="Manhattan">&#160;&#160;Manhattan</option>
@@ -320,7 +320,7 @@ export default class JobsController extends React.Component {
                             <option value="Staten Island">&#160;&#160;Staten Island</option>
                             <option value="Otra area en NY">
                                 &#160;&#160;{this.context.main.filterOtherArea}
-                            </option>
+                            </option> */}
                         </select>
                         </div>
 
