@@ -111,14 +111,17 @@ export function loginWithGoogle() {
         });
 }
 
+export function getRedirectResult(){
+    return firebase.auth().getRedirectResult()
+}
+
 export function loginWithFacebook() {
     var provider = new firebase.auth.FacebookAuthProvider();
     provider.setCustomParameters({
-        display: "popup"
     });
     return firebase
         .auth()
-        .signInWithPopup(provider)
+        .signInWithRedirect(provider)
         .then(function(result) {
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
             var token = result.credential.accessToken;
@@ -126,7 +129,11 @@ export function loginWithFacebook() {
             var user = result.user;
             // ...
             axios.defaults.headers.common["Authorization"] = user.uid;
-            console.log(user, result.credential.accessToken);
+            console.log(
+                "user and accesstoken",
+                user,
+                result.credential.accessToken
+            );
             return;
         })
         .catch(function(error) {
@@ -138,6 +145,12 @@ export function loginWithFacebook() {
             // The firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
             // ...
-            console.error(errorCode, errorMessage, email, credential);
+            console.error(
+                "error in sign in fb",
+                errorCode,
+                errorMessage,
+                email,
+                credential
+            );
         });
 }

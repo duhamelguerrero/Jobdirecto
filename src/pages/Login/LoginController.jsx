@@ -5,7 +5,8 @@ import { BodyComponent } from "../../components/Body/BodyComponent";
 import {
     loginWithFacebook,
     loginWithGoogle,
-    loginWithEmail
+    loginWithEmail,
+    getRedirectResult
 } from "../../utils/sessions";
 
 export default class LoginController extends React.Component {
@@ -14,6 +15,19 @@ export default class LoginController extends React.Component {
         this.state = {};
         this.facebookLogin = this.facebookLogin.bind(this);
         this.error;
+        
+    }
+    componentDidMount(){
+        getRedirectResult().then(r=>{
+            console.log(r);
+            if(r.user){
+                if(this.props.navigation.params && this.props.navigation.params.__pathguard__){
+                    this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
+                }else{
+                    this.props.navigation.navigate("/");
+                }
+            }
+        })
     }
 
     facebookLogin() {
