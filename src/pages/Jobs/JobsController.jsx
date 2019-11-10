@@ -287,10 +287,7 @@ export default class JobsController extends React.Component {
                    
 {/* <p id="welcomeText" className="text">Usuarios premium conectados: 36</p> */}
                         {/**/}
-                        <p id="welcomeText" className="text">Encontraron trabajo en lo que va de Noviembre:
-14 personas
-
-</p>
+                       
 
 
                     </div>
