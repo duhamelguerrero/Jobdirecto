@@ -19,6 +19,7 @@ export default class LoginController extends React.Component {
     }
     componentDidMount(){
         getRedirectResult().then(r=>{
+            console.log(r);
             if(this.props.navigation.params && this.props.navigation.params.__pathguard__){
                 this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
             }else{
