@@ -37,6 +37,10 @@ const PersonConfirmController = React.lazy(_ =>
 
 //console.log(sessionInit());
 
+if(location.protocol == "http" && window.location.hostname != "localhost"){
+    location.href = location.href.replace("http://","https://");
+}
+
 let routes = [
     { path: "", component: JobsController },
     { path: "login", component: LoginController },
