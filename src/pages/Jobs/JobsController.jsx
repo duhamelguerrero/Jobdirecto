@@ -239,10 +239,17 @@ export default class JobsController extends React.Component {
             <BodyComponent toggleLanguage={this.props.navigation.toggleLanguage}>
             <div className="itAll">
                 
-		        <p className="ambassadorText">{this.context.main.ambassador}</p>
-                {!this.state.user && <Link to="/login"><div className="buttonsAuth" ><img className="star starMini" src="star.png" /><p className="authText">{this.context.main.login}</p></div></Link>}
-                {this.state.user && <p className="buttonsAuth" onClick={this.logOut}>{this.context.main.logout}</p>}
+		        {/* <p className="ambassadorText">{this.context.main.ambassador}</p> */}
+<p  className="ambassadorText">Encontraron trabajo en lo que va de Noviembre: <br /> 14 personas</p>
 
+                <div className="authDiv">
+                    {this.state.userStatus &&  this.state.userStatus.data && console.log("horny dog", this.state.userStatus.data.data)}
+                {!this.state.user && <Link to="/login"><div className="buttonsAuth1" ><img className="star starMini" src="star.png" /><p className="authText">{this.context.main.login}</p></div></Link>}
+                {this.state.user && <p className="buttonsAuth2" onClick={this.logOut}>{this.context.main.logout}</p>}
+                {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data.data === false && <h3 id="authText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} </h3>}
+                {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data.data === true && <h3 id="authText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} <br />{this.context.main.premium}</h3>}
+
+                </div>
                 <div>
                     <h1 />
                 </div>
@@ -277,9 +284,7 @@ export default class JobsController extends React.Component {
                             value={this.context.main.createPost}
                             onClick={this.handleSubmit}
                         />
-                        {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data && <h3 id="welcomeText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} </h3>}
-                        {this.state.user && this.state.userStatus && this.state.userStatus.data && this.state.userStatus.data && <h3 id="welcomeText" className="text">{this.context.main.welcome}<br /> {this.state.user.name} <br />{this.context.main.premium}</h3>}
-
+                   
 {/* <p id="welcomeText" className="text">Usuarios premium conectados: 36</p> */}
                         {/**/}
                         <p id="welcomeText" className="text">Encontraron trabajo en lo que va de Noviembre:
@@ -295,6 +300,7 @@ export default class JobsController extends React.Component {
                             this.trackCreateJob();
                         }}
                     >
+                        <div className="filterDiv">
                         <select
                             className="filter"
                             type="text"
@@ -307,6 +313,7 @@ export default class JobsController extends React.Component {
                             {this.state.country && this.state.country.areas.map(e=>{
                                 return <option value={e.id}>&#160;&#160;{e.name}</option>
                             })}
+                            
                             {/* <option value="">
                                 &#160;&#160;{this.context.main.filterDefault}
                             </option>
@@ -319,6 +326,8 @@ export default class JobsController extends React.Component {
                                 &#160;&#160;{this.context.main.filterOtherArea}
                             </option> */}
                         </select>
+                        </div>
+
                     </form>
                 </div>
                 
