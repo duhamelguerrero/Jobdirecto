@@ -28,7 +28,7 @@ export const languages = {
             title: "Solo los usuarios premium pueden cerrar sus anuncios.",
             title2: "Desea ser usuario premium?",
             deny: "No gracias",
-            buyPremium: "Si, comprar cuenta premium (2$)"
+            buyPremium: "Si, comprar cuenta premium (2$ por semana)"
         },
         bepremiumModal: {
             title: "Solo los usuarios premium pueden ver todos los anuncios.",
@@ -44,7 +44,7 @@ export const languages = {
             title:
                 "Para convertirse en usuario premium, primero inicie sesion con Facebook",
             text:
-                "Luego de iniciar sesion podra hacer nuevas cosas, como reportar anuncios, borrar sus anuncios y convertirse en usuario premium",
+                "Luego de iniciar sesion podra hacer nuevas cosas, como reportar anuncios, borrar sus anuncios y convertirse en usuario premium para ver todos los anuncios",
             button: "Iniciar Sesión con Facebook"
         },
         postType: {
@@ -218,12 +218,12 @@ export const languages = {
         premiumModal: {
             title: "Only premium users can close their posts :)",
             deny: "Nevermind",
-            buyPremium: "Get premium account ($5)"
+            buyPremium: "Get premium account ($2)"
         },
         bepremiumModal: {
             title: "Only premium users can see this posts :)",
             deny: "Nevermind",
-            buyPremium: "Get premium account ($5)"
+            buyPremium: "Get premium account ($2)"
         },
 
         login: {

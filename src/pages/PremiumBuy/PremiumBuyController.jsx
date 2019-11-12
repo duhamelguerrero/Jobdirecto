@@ -19,9 +19,12 @@ export default class PremiumBuy extends React.Component {
                 <div className="container">
                     <p className="text">
                         {" "}
-                        Las cuentas premium cuestan tan solo 2 dolares por
-                        semana y le permiten ver todos los anuncios de trabajo.
+                        4 de cada 5 usuarios que compraron una cuenta premium, consiguieron trabajo en menos de 2 semanas.
                         <br />
+                        Las cuentas premium cuestan tan solo 2 dolares por
+                        semana y le permiten ver todos los anuncios de trabajo. 
+                        <br />
+                        
                         <br />
                         Puede cancelar su cuenta premium cuando quiera.
                         <br />
