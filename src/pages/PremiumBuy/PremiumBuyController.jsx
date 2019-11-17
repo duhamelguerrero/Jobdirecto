@@ -11,6 +11,14 @@ export default class PremiumBuy extends React.Component {
         this.props.navigation.navigate("/");
     }
 
+    componentDidMount(){
+        axios.get("/getUserStatus").then(result => {
+            if(result.data.data==true){
+                this.props.navigation.navigate("/");
+            }
+        });
+    }
+
     render() {
         return (
             <BodyComponent
