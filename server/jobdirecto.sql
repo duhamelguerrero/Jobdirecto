@@ -62,7 +62,7 @@ CREATE TABLE jobs
     phone VARCHAR(255),
     area VARCHAR(255),
     extrainfo VARCHAR(255),
-    urgent VARCHAR(255),
+    urgent bool,
     postType VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deleted bool DEFAULT FALSE,
@@ -111,42 +111,42 @@ CREATE TABLE temporalAnalytics
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, urgent)
 VALUES
-    ('Tribeca bagels', 'Cocinero', '14', 'cash', 'lunes a viernes tardes hasta cerrar', 'juana marcos', '127 East 7th New York, NY 10009', '(646) 850-5345', 'manhattan', 'false');
+    ('Tribeca bagels', 'Cocinero', '14', 'cash', 'lunes a viernes tardes hasta cerrar', 'juana marcos', '127 East 7th New York, NY 10009', '(646) 850-5345', 'manhattan', false);
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, urgent)
 VALUES
-    ('Bubbas Bistro', 'Cocinero con experiencia', '13', 'ambos', 'fines de semana', 'maria', '2071 Clove RdStaten Island, NY 10304', '(718) 524-7174', 'Staten Island', 'false');
+    ('Bubbas Bistro', 'Cocinero con experiencia', '13', 'ambos', 'fines de semana', 'maria', '2071 Clove RdStaten Island, NY 10304', '(718) 524-7174', 'Staten Island', false);
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, urgent)
 VALUES
-    ('Lobster Joint', 'Preparador', '16', 'Check', 'lunes marte y miercoles', 'nicola', '225 Liberty StNew York, NY 10281', '(212) 981-8577', 'Manhattan', 'false');
+    ('Lobster Joint', 'Preparador', '16', 'Check', 'lunes marte y miercoles', 'nicola', '225 Liberty StNew York, NY 10281', '(212) 981-8577', 'Manhattan', false);
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, urgent)
 VALUES
-    ('Lobster Joint', 'Mesera', '16', 'Check', 'lunes marte y miercoles', 'nicola', '225 Liberty StNew York, NY 10281', '(212) 981-8577', 'Manhattan', 'false');
+    ('Lobster Joint', 'Mesera', '16', 'Check', 'lunes marte y miercoles', 'nicola', '225 Liberty StNew York, NY 10281', '(212) 981-8577', 'Manhattan', false);
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, urgent)
 VALUES
-    ('Daltons Bar Grill', 'Mesera', '15', 'Cash', 'lunes, martes, miercoles sabados y domingos', 'juan', '60 E 65th St.New York, NY 10065', '(212) 288-0033', 'Manhattan', 'false');
+    ('Daltons Bar Grill', 'Mesera', '15', 'Cash', 'lunes, martes, miercoles sabados y domingos', 'juan', '60 E 65th St.New York, NY 10065', '(212) 288-0033', 'Manhattan', false);
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, urgent)
 VALUES
-    ('East village deli', 'Lavaplatos', '13', 'ambos', 'fines de semana', 'maria', '2071 Clove RdStaten Island, NY 10304', '(718) 524-7174', 'Staten Island', 'false');
+    ('East village deli', 'Lavaplatos', '13', 'ambos', 'fines de semana', 'maria', '2071 Clove RdStaten Island, NY 10304', '(718) 524-7174', 'Staten Island', false);
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, urgent)
 VALUES
-    ('Molo Ristorante', 'Pizzero', '16', 'Check', 'lunes marte y miercoles', 'nicola', '225 Liberty StNew York, NY 10281', '(212) 981-8577', 'Manhattan', 'true');
+    ('Molo Ristorante', 'Pizzero', '16', 'Check', 'lunes marte y miercoles', 'nicola', '225 Liberty StNew York, NY 10281', '(212) 981-8577', 'Manhattan', true);
 
 
 -- urgent jobs
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, extrainfo, urgent)
 VALUES
-    ('Negocio Ejemplo', 'cocinero de linea', '', '', 'part time o full time hay', '', '', '', 'Manhattan', 'se le entrena si tiene poca experiencia, se busca gente que pueda empezar de inmediato', 'true');
+    ('Negocio Ejemplo', 'cocinero de linea', '', '', 'part time o full time hay', '', '', '', 'Manhattan', 'se le entrena si tiene poca experiencia, se busca gente que pueda empezar de inmediato', true);
 INSERT INTO jobs
     (restName, jobType, hourPay, typePay, schedule, contact, address, phone, area, extrainfo, urgent)
 VALUES
-    ('Wallys Deli', 'deli/ grill person', '', '', 'full time', 'Wally', '3345 broadway', '(917) 405-8424', 'Manhattan', 'debe tener experiencia porque es un deli ocupado', 'true');
+    ('Wallys Deli', 'deli/ grill person', '', '', 'full time', 'Wally', '3345 broadway', '(917) 405-8424', 'Manhattan', 'debe tener experiencia porque es un deli ocupado', true);
 INSERT INTO personas
     (personName, personStatus, personSkill, personExperience, personSchedule, personArea, personNumber, personExtraInfo)
 VALUES
