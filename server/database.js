@@ -651,7 +651,7 @@ exports.getCountry = function({code}={}) {
         for (let i = 0; i < result.rows.length; i++) {
             let row = result.rows[i];
             row.areas = await db
-                .query("SELECT * FROM cities_area WHERE id_city = $1", [row.id])
+                .query("SELECT * FROM cities_area WHERE id_city = $1 ORDER BY inorder ASC", [row.id])
                 .then(r => r.rows);
         }
         return result.rows;
