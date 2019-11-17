@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import StripeButton3 from "../../components/StripeButton3/StripeButton3";
 import { LanguageContext } from "../../components/Language/LanguageContext";
 import { BodyComponent } from "../../components/Body/BodyComponent";
