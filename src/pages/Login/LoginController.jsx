@@ -21,6 +21,7 @@ export default class LoginController extends React.Component {
         getRedirectResult().then(r=>{
             if(r.user){
                 axios.get("/getUserStatus").then(result => {
+                    console.log(result);
                     if(this.props.navigation.params && this.props.navigation.params.__pathguard__ && result.data==false){
                         this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
                     }else{
