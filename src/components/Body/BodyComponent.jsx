@@ -17,10 +17,11 @@ export class BodyComponent extends Component{
 
     componentDidMount(){
         //this.props.toggleLanguage();
+        let hostname = location.hostname;
+        let sub = hostname.split(".")[0];
         Axios({
             method: 'get',
-            url: '/getCountry',
-            params: {},
+            url: '/getCountry/'+sub,
             withCredentials: true
         }).then(result => {
             

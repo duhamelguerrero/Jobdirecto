@@ -245,6 +245,9 @@ export default class JobForm extends React.Component {
                                         </option>
                                     );
                                 })}
+                            <option value={-1}>
+                                &#160;&#160;{this.context.main.filterOtherArea.replace("%namearea%",this.state.country.name)}
+                            </option>
                         </select>
                         {this.state.area ===
                             this.context.jobForm.filterOtherArea && (
