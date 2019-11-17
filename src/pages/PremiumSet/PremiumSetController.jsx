@@ -19,6 +19,7 @@ export default class PremiumSet extends React.Component {
                 console.log("id in state?", this.state.userId);
             });
         });
+        axios.post("/setPremium").then(result => {})
     }
 
     getUserStatus() {
@@ -29,9 +30,10 @@ export default class PremiumSet extends React.Component {
 
     setPremium() {
         if (this.state.userStatus !== true) {
-            axios.post("/setPremium").then(result => {
-                this.props.navigation.navigate("/");
-            });
+            this.props.navigation.navigate("/");
+            /* axios.post("/setPremium").then(result => {
+                
+            }); */
         }
     }
 
