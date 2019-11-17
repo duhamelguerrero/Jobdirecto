@@ -21,15 +21,18 @@ export default class JobForm extends React.Component {
         this.getCountry();
     }
     getCountry() {
+        let hostname = location.hostname;
+        let sub = hostname.split(".")[0];
         axios({
-            method: "get",
-            url: "/getCountry",
-            params: {},
+            method: 'get',
+            url: '/getCountry/'+sub,
             withCredentials: true
         }).then(result => {
+            
             this.setState({
                 country: result.data.data[0]
             });
+            
         });
     }
 

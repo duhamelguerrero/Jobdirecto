@@ -30,7 +30,7 @@ exports.publishJob = function(
         .query(
             `
         INSERT INTO jobs
-        (id_user, restname, jobtype, hourpay, typepay, schedule, contact, address, area, phone, extrainfo, urgent, postType, active)
+        (id_user, restname, jobtype, hourpay, typepay, schedule, contact, address, id_area, phone, extrainfo, urgent, postType, active)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
         returning *;
         `,
@@ -74,7 +74,7 @@ exports.publishJobNoUser = function(
         .query(
             `
         INSERT INTO jobs
-        (restname, jobtype, hourpay, typepay, schedule, contact, address, area, phone, extrainfo, urgent, postType, active)
+        (restname, jobtype, hourpay, typepay, schedule, contact, address, id_area, phone, extrainfo, urgent, postType, active)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
         returning *;
         `,
@@ -199,7 +199,7 @@ exports.publishPerson = function(
         .query(
             `
         INSERT INTO personas
-        (id_user, personName, personStatus, personSkill, personExperience, personSchedule, personArea, personNumber, personExtraInfo, postType,active)
+        (id_user, personName, personStatus, personSkill, personExperience, personSchedule, id_area, personNumber, personExtraInfo, postType,active)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
         returning *;
         `,
@@ -237,7 +237,7 @@ exports.publishPersonNoUser = function(
         .query(
             `
         INSERT INTO personas
-        ( personName, personStatus, personSkill, personExperience, personSchedule, personArea, personNumber, personExtraInfo, postType,active)
+        ( personName, personStatus, personSkill, personExperience, personSchedule, id_area, personNumber, personExtraInfo, postType,active)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10)
         returning *;
         `,
