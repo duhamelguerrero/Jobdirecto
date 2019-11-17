@@ -647,7 +647,7 @@ exports.markActivePerson = function(id_job) {
 };
 
 exports.getCountry = function({code}={}) {
-    return db.query("SELECT * FROM cities WHERE code=? OR isdefault=true",[code]).then(async result => {
+    return db.query("SELECT * FROM cities WHERE prefix=? OR isdefault=true",[code]).then(async result => {
         for (let i = 0; i < result.rows.length; i++) {
             let row = result.rows[i];
             row.areas = await db
