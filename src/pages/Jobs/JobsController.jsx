@@ -335,7 +335,7 @@ export default class JobsController extends React.Component {
                     {!this.state.userSelectionArea &&
                         this.state.jobData.data.map(data => {
                             if (
-                                data.urgent === "true" &&
+                                data.urgent === true &&
                                 this.urgentJobInterval(data.created_at) === true
 
                             ) {
