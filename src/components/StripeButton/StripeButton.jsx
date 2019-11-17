@@ -10,8 +10,8 @@ function StripeButton(props) {
     window.location.hostname == "staging-jobdirecto.herokuapp.com") {
         stripeKey = "pk_test_EchftZwNDBbLUUNsRhb9S8QM00fF3sfDub";
         itemArray = "sku_G4PzLi8dz2bcF7";
-        successUrl = `//localhost:6543/#/JobConfirm/${props.transactionId}`;
-        failUrl = "//localhost:6543/#/StripeButton";
+        successUrl = `//${location.host}/#/JobConfirm/${props.transactionId}`;
+        failUrl = `//${location.host}/#/StripeButton`;
     } else {
         stripeKey = "pk_live_5PjwBk9dSdW7htTKHQ3HKrTd";
         itemArray = "sku_FAe7tbPK29byHW";
