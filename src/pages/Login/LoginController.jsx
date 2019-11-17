@@ -35,11 +35,14 @@ export default class LoginController extends React.Component {
 
     facebookLogin() {
         loginWithFacebook().then(r=>{
-            if(this.props.navigation.params && this.props.navigation.params.__pathguard__){
-                this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
-            }else{
-                this.props.navigation.navigate("/");
-            }
+            axios.get("/getUserStatus").then(result => {
+                console.log(result);
+                if(this.props.navigation.params && this.props.navigation.params.__pathguard__ && result.data.data==false){
+                    this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
+                }else{
+                    this.props.navigation.navigate("/");
+                }
+            });
         })
         //axios.get("/loginFacebook");
     }
