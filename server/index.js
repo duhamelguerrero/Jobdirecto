@@ -557,7 +557,7 @@ app.post("/createPersonTransaction", function(req, res) {
 });
 app.get("/getJobTrans/:id", function(req, res) {
     return database.getJobFromTransaction(req.params.id).then(r => {
-        return database.markActive(r.id).then(r=>{
+        return database.markActive(r.id).then(_=>{
             res.json({
                 jobdata: r
             });
@@ -567,7 +567,7 @@ app.get("/getJobTrans/:id", function(req, res) {
 });
 app.get("/getPersonTrans/:id", function(req, res) {
     return database.getPersonFromTransaction(req.params.id).then(r => {
-        return database.markActivePerson(r.id).then(r=>{
+        return database.markActivePerson(r.id).then(_=>{
             res.json({
                 jobdata: r
             });
