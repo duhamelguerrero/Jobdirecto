@@ -69,11 +69,8 @@ export default class JobsController extends React.Component {
         let hostname = location.hostname;
         let sub = hostname.split(".")[0];
         axios({
-            method: 'post',
-            url: '/getCountry',
-            params: {
-                code:sub
-            },
+            method: 'get',
+            url: '/getCountry/'+sub,
             withCredentials: true
         }).then(result => {
             

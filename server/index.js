@@ -201,8 +201,8 @@ app.post("/reportPost/:id", function(req, res) {
     });
 });
 
-app.get("/getCountry", function(req, res) {
-    return database.getCountry({code:req.body.code}).then(data => {
+app.get("/getCountry/:code", function(req, res) {
+    return database.getCountry({code:req.params.code}).then(data => {
         res.json({
             data
         });
