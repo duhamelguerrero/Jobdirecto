@@ -23,7 +23,7 @@ export default class LoginController extends React.Component {
                 axios.get("/getUserStatus").then(result => {
                     console.log(result);
                     if(this.props.navigation.params && this.props.navigation.params.__pathguard__ && result.data.data==false){
-                        this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
+                        //this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
                     }else{
                         this.props.navigation.navigate("/");
                     }
@@ -38,7 +38,7 @@ export default class LoginController extends React.Component {
             axios.get("/getUserStatus").then(result => {
                 console.log(result);
                 if(this.props.navigation.params && this.props.navigation.params.__pathguard__ && result.data.data==false){
-                    this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
+                    //this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
                 }else{
                     this.props.navigation.navigate("/");
                 }

@@ -134,7 +134,7 @@ export function loginWithFacebook() {
                 user,
                 result.credential.accessToken
             );
-            return;
+            return user;
         })
         .catch(function(error) {
             // Handle Errors here.
