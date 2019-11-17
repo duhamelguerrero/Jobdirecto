@@ -19,13 +19,15 @@ export default class LoginController extends React.Component {
     }
     componentDidMount(){
         getRedirectResult().then(r=>{
-            console.log(r);
             if(r.user){
-                if(this.props.navigation.params && this.props.navigation.params.__pathguard__){
-                    this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
-                }else{
-                    this.props.navigation.navigate("/");
-                }
+                axios.get("/getUserStatus").then(result => {
+                    if(this.props.navigation.params && this.props.navigation.params.__pathguard__ && result.data==false){
+                        this.props.navigation.navigate(this.props.navigation.params.__pathguard__);
+                    }else{
+                        this.props.navigation.navigate("/");
+                    }
+                });
+                
             }
         })
     }
